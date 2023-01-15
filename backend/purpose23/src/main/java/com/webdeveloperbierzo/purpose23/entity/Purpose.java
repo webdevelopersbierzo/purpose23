@@ -24,6 +24,15 @@ public class Purpose {
     public Purpose() {
     }
 
+    public Purpose(Long id, String category, String purposeName, String purposeWhat, LocalDate dateStar, LocalDate dateEnd) {
+        this.id = id;
+        this.category = category;
+        this.purposeName = purposeName;
+        this.purposeWhat = purposeWhat;
+        this.dateStar = dateStar;
+        this.dateEnd = dateEnd;
+    }
+
     public Long getId() {
         return id;
     }
