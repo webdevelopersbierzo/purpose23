@@ -67,7 +67,6 @@ public class PurposeController {
         return ResponseEntity.ok(result);
 
     }
-
     // Delete one purpose
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/api/v1/purposes/{id}")
@@ -78,7 +77,6 @@ public class PurposeController {
         prepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
     // Delete all purpose
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/api/v1/purposes")
