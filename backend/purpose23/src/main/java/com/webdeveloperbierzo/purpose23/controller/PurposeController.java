@@ -4,7 +4,6 @@ import com.webdeveloperbierzo.purpose23.entity.Purpose;
 import com.webdeveloperbierzo.purpose23.repository.PurposeRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +16,7 @@ public class PurposeController {
         this.prepository = prepository;
     }
 
-    @CrossOrigin(origins = "http://localhost/5173")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/hola")
     public String holaMundo(){
         return "Hola mundo";
@@ -26,13 +25,14 @@ public class PurposeController {
     // CRUD Purpose entity
 
     // Search all Purpose
-    @CrossOrigin(origins = "http://localhost/5173")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/api/v1/purposes")
     public List<Purpose> findAll(){
         return prepository.findAll();
     }
 
     // Search one Purpose
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/api/v1/purposes/{id}")
     public ResponseEntity<Purpose> findById(@PathVariable Long id){
         Optional<Purpose> purposeOpt = prepository.findById(id);
@@ -43,6 +43,7 @@ public class PurposeController {
         }
     }
     // Create one purpose
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/api/v1/purposes")
     public ResponseEntity<Purpose> create(@RequestBody Purpose purpose){
         if(purpose.getId() !=null){
@@ -52,6 +53,7 @@ public class PurposeController {
         return ResponseEntity.ok(result);
     }
     // Update one purpose
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/api/v1/purposes")
     public ResponseEntity<Purpose> update(@RequestBody Purpose purpose){
         if(purpose.getId() == null){
@@ -64,8 +66,8 @@ public class PurposeController {
         return ResponseEntity.ok(result);
 
     }
-
     // Delete one purpose
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/api/v1/purposes/{id}")
     public ResponseEntity<Purpose> delete(@PathVariable Long id){
         if(!prepository.existsById(id)){
@@ -74,9 +76,8 @@ public class PurposeController {
         prepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
     // Delete all purpose
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/api/v1/purposes")
     public ResponseEntity<Purpose> deleteAll(){
         prepository.deleteAll();
