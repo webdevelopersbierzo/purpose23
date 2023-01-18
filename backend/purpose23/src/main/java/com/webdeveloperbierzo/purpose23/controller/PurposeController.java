@@ -4,7 +4,6 @@ import com.webdeveloperbierzo.purpose23.entity.Purpose;
 import com.webdeveloperbierzo.purpose23.repository.PurposeRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
