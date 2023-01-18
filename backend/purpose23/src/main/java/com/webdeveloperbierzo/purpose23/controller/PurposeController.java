@@ -17,6 +17,7 @@ public class PurposeController {
         this.prepository = prepository;
     }
 
+    @CrossOrigin(origins = "http://localhost/5173")
     @GetMapping("/hola")
     public String holaMundo(){
         return "Hola mundo";
@@ -25,6 +26,7 @@ public class PurposeController {
     // CRUD Purpose entity
 
     // Search all Purpose
+    @CrossOrigin(origins = "http://localhost/5173")
     @GetMapping("/api/v1/purposes")
     public List<Purpose> findAll(){
         return prepository.findAll();
