@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import Purpose from './Purpose';
 const baseUrl = "https://purpose23-production.up.railway.app/"
 
 const PurposeList = () => {
@@ -27,7 +28,10 @@ const PurposeList = () => {
            
             {
                 <ul>
-                    {/* TODO COMPONENTE PURPOSE */}
+                    {purposes.map((purpose, index)=>(
+                        <Purpose data={purpose} key={index}></Purpose>
+                    ))}
+                    
                       
                 </ul>
             }    
