@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='w-full'>
       <Menu></Menu>
-      <PurposeList></PurposeList>
+      
     </div>
   )
 }
