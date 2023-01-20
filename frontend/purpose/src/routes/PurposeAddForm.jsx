@@ -125,7 +125,7 @@ const PurposeAddForm = () => {
                     className="text-red-400"
                   />
                   <button
-                    className="bg-blue-500 rounded-md mt-4 mb-4"
+                    className="bg-blue-500 rounded-md mt-4 mb-4 p-2 hover:bg-blue-700"
                     type="Submit"
                   >
                     Submit
