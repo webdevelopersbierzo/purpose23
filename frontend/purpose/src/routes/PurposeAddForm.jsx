@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../components/menu";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const PurposeAddForm = () => {
   const formSchema = Yup.object({
@@ -20,9 +21,8 @@ const PurposeAddForm = () => {
     purposeName: "",
     purposeWhat: "",
     dateStar: new Date(),
-    dateEnd: new Date()
+    dateEnd: new Date(),
   };
-  
 
   return (
     <div className="w-full  bg-slate-900  h-screen text-white">
@@ -36,6 +36,21 @@ const PurposeAddForm = () => {
             onSubmit={async (values) => {
               await new Promise((r) => setTimeout(r, 500));
               alert(JSON.stringify(values, null, 2));
+              console.log(values);
+
+              axios({
+                method: "POST",
+                url: "https://purpose23-production.up.railway.app/api/v1/purposes",
+                data: values,
+                headers: { "Content-Type": "application/json" },
+              })
+                .then(function (res) {
+                  // console.log(res);
+                  alert("Successfully signed up!");
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
             }}
           >
             {(props) => {
@@ -85,10 +100,10 @@ const PurposeAddForm = () => {
                     component="div"
                     className="text-red-400"
                   />
-                  <label htmlFor="dateStart">Start </label>
+                  <label htmlFor="dateStar">Start </label>
                   <Field
-                    id="dateStart"
-                    name="dateStart"
+                    id="dateStar"
+                    name="dateStar"
                     placeholder="date Star"
                     type="date"
                   />
@@ -110,10 +125,8 @@ const PurposeAddForm = () => {
                     className="text-red-400"
                   />
                   <button
-                    className="bg-blue-500 rounded-md mt-4 mb-4"
+                    className="bg-blue-500 rounded-md mt-4 mb-4 p-2 hover:bg-blue-700"
                     type="Submit"
-                    onSubmit={()=>{console.log("Estamos en construcción")}}
-                    disabled
                   >
                     Submit
                   </button>
