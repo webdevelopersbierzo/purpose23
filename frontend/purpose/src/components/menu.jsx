@@ -25,7 +25,7 @@ const Menu = () => {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Popover.Panel className="absolute z-10 text-white">
+                <Popover.Panel className="absolute z-10 text-white w-48">
                   <div className="flex flex-col pl-8 pr-8 pb-10 pt-10 bg-gradiente-to-r from bg-fuchsia-500 to-violet-400 divide-y">
                     <Link className="mb-2 " to={"/"}>
                       Home
@@ -38,6 +38,9 @@ const Menu = () => {
                     </Link>
                     <Link className="mb-2" to={"/Register"}>
                       Register
+                    </Link>
+                    <Link className="mb-2" to={"profile/purpose/add"}>
+                      Add purpose
                     </Link>
                   </div>
                 </Popover.Panel>

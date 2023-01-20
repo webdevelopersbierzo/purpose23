@@ -1,0 +1,12 @@
+#purposeAddForm input{
+    color: black;
+}
+
+input {
+    padding-top:4px;
+    padding-bottom: 4px;
+}
+label {
+    padding-top: 8px;
+    padding-bottom: 4px;
+}

@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='w-full'>
+    <div className='w-full bg-slate-900  h-screen text-white'>
       <Menu></Menu>
       
     </div>
