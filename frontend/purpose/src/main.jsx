@@ -9,6 +9,7 @@ import LoginPage from './routes/LoginPage';
 import RegisterPage from './routes/RegisterPage';
 import ProfilePage from './routes/ProfilePage.jsx';
 import Error from './routes/Error';
+import PurposeAddForm from './routes/PurposeAddForm';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path:'/profile',
     element: <ProfilePage></ProfilePage>
+  },
+  {
+    path:'/profile/purpose/add',
+    element: <PurposeAddForm></PurposeAddForm>
   },
 
 ])
