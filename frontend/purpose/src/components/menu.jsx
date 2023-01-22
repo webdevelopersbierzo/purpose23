@@ -39,9 +39,10 @@ const Menu = () => {
                     <Link className="mb-2" to={"/Register"}>
                       Register
                     </Link>
-                    <Link className="mb-2" to={"profile/purpose/add"}>
-                      Add purpose
+                    <Link className="mb-2" to={"/profile"}>
+                      Profile
                     </Link>
+                   
                   </div>
                 </Popover.Panel>
               </Transition>

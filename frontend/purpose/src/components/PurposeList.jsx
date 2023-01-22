@@ -24,17 +24,10 @@ const PurposeList = () => {
 
     if(isReady){
         return (
-            <div>
-           
-            {
-                <ul>
+            <div className="flex flex-col w-11/12 md:flex-row md:flex-wrap md:justify-center">               
                     {purposes.map((purpose, index)=>(
                         <Purpose data={purpose} key={index}></Purpose>
-                    ))}
-                    
-                      
-                </ul>
-            }    
+                    ))}                            
             </div>
         )
 
