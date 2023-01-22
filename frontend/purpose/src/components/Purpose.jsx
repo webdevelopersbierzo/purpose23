@@ -6,9 +6,8 @@ function Purpose({ data }) {
     console.log(data);
   }
   return (
-    <div className="flex flex-col max-w-xs  mt-6 text-white">
-      <div className="flex-none h-20 w-20 bg-gray-500 rounded-full absolute "></div>
-
+    <div className="flex flex-col w-full mt-6 text-white md:max-w-xs m-2 " >
+      <div className="flex-none h-20 w-20 bg-gray-500 rounded-full absolute"></div>
       <header className="flex flex-row justify-start items-center pl-20">
         <h3 className="text-xl p-4">{data.category}</h3>
       </header>
@@ -22,10 +21,10 @@ function Purpose({ data }) {
         </div>
 
         <div>
-          <p className="text-lg">{data.purposeWhat}</p>
+          <p className="text-lg p-2">{data.purposeWhat}</p>
         </div>
 
-        <footer className="flex flex-row justify-between">
+        <footer className="flex flex-row justify-between pl-2">
           <p>{data.dateEnd}</p>
           <button className="bg-violet-600 rounded-tl-2xl rounded-br-2xl pl-2 pr-2 pt-1 pb-1">
             View more
