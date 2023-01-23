@@ -15,9 +15,9 @@ const PurposeEditForm = () => {
   useEffect(() => {
     
     axios
-      .get(`https://purpose23-production.up.railway.app/api/v1/purposes/3`)
+      .get(`https://purpose23-production.up.railway.app/api/v1/purposes/6`)
       .then((response) => {
-        if ((response.status = 200)) {
+        if ((response.status === 200)) {
           setPurposedata(response.data);
           setIsReady(true);
          

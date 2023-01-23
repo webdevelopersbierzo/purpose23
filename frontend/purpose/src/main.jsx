@@ -11,6 +11,7 @@ import ProfilePage from './routes/ProfilePage.jsx';
 import Error from './routes/Error';
 import PurposeAddForm from './routes/PurposeAddForm';
 import PurposeEditForm from './routes/PurposeEditForm';
+import DeletePage from './routes/DeletePage';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path:'/profile/purpose/edit/*',
     element:<PurposeEditForm />
+  },
+  {
+    path:'/profile/purpose/delete/*',
+    element:<DeletePage />
   }
 
 ])

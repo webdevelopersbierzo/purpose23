@@ -27,7 +27,7 @@ function Purpose({ data }) {
             <Popover.Panel className="absolute z-10 right-2">
               <div className="flex flex-col bg-gradient-to-r from-pink-700  to-purple-500 h-40 p-6 rounded-lg">
                 <Link to={`/profile/purpose/edit/${id}`}>Editar</Link>
-                <Link to={"/profile/purpose/delete"}>Borrar</Link>
+                <Link to={`/profile/purpose/delete/${id}`}>Borrar</Link>
                       
               </div>
             </Popover.Panel>
