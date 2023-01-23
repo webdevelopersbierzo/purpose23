@@ -1,15 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { EllipsisVerticalIcon, XMarkIcon} from "@heroicons/react/24/outline";
+import { Popover } from "@headlessui/react";
+import {Link} from 'react-router-dom'
 function Purpose({ data }) {
-  {
-    console.log(data);
-  }
+
+  const id = data.id;
+  
   return (
     <div className="flex flex-col w-full mt-6 text-white md:max-w-xs m-2 " >
       <div className="flex-none h-20 w-20 bg-gray-500 rounded-full absolute"></div>
-      <header className="flex flex-row justify-start items-center pl-20">
+      <header className="flex flex-row justify-between items-center  pl-20">
         <h3 className="text-xl p-4">{data.category}</h3>
+        <Popover className="relative">
+        {({ open }) =>(
+          <>
+          <Popover.Button>
+              { open ? (
+                <XMarkIcon className="w-10 h-10 text-white"></XMarkIcon>
+                ) : (
+                  <EllipsisVerticalIcon className="w-10 h-10 "/>
+                )
+              }
+              
+            </Popover.Button>
+            <Popover.Panel className="absolute z-10 right-2">
+              <div className="flex flex-col bg-gradient-to-r from-pink-700  to-purple-500 h-40 p-6 rounded-lg">
+                <Link to={`/profile/purpose/edit/${id}`}>Editar</Link>
+                <Link to={"/profile/purpose/delete"}>Borrar</Link>
+                      
+              </div>
+            </Popover.Panel>
+          </>
+        )}
+        </Popover>
+        
+        
+        
       </header>
 
       <div className="flex flex-col justify-between rounded-2xl bg-gradient-to-r from-pink-500  to-purple-500 h-40 ">
