@@ -1,6 +1,9 @@
 #purposeAddForm input{
     color: black;
 }
+#purposeEditForm input{
+    color: black;
+}
 
 input {
     padding-top:4px;
