@@ -4,13 +4,16 @@ import Menu from "../components/menu";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import axios from "axios";
 import { useParams } from "react-router";
+import * as Yup from 'yup';
 
 const PurposeEditForm = () => {
-  const { purposeId } = useParams();
+
+  const {id} = useParams();
   const [isReady, setIsReady] = useState(false);
   const [purposedata, setPurposedata] = useState([]);
 
   useEffect(() => {
+    
     axios
       .get(`https://purpose23-production.up.railway.app/api/v1/purposes/3`)
       .then((response) => {
@@ -22,10 +25,21 @@ const PurposeEditForm = () => {
       })
       .catch((error) => console.log(error));
   }, []);
-  {
-    console.log(purposedata)
-  }
+  
+  const editFormSchema =  Yup.object({
+    category: Yup.string()
+      .required("Category input is required")
+      .max(20, "maximum 20 characters"),
+    purposeName: Yup.string()
+      .required("Purpose's Name is required")
+      .max(30, "Maximun 30 charaters"),
+    purposeWhat: Yup.string().required("Is requered"),
+    dateStar: Yup.date().required(),
+    dateEnd: Yup.date().required(),
+  })
+
   const dataForm = {
+    id:`${id}`,
     category: `${purposedata.category}`,
     purposeName: `${purposedata.purposeName}`,
     purposeWhat:`${purposedata.purposeWhat}`,
@@ -43,23 +57,23 @@ const PurposeEditForm = () => {
             <Formik
               initialValues={dataForm}
               enableReinitialize={true}
+              validationSchema= {editFormSchema}
               onSubmit={async (values) =>{
                 await new Promise((r)=> setTimeout(r,500));
                 alert(JSON.stringify(values,null,2));
 
                 axios({
                   method: "POST",
-                  url: `https://purpose23-production.up.railway.app/api/v1/purposes/3`,
+                  url: `https://purpose23-production.up.railway.app/api/v1/purposes`,
                   data: values,
                   header: {"Content-Type": "application/json"},
                 })
                 .then(function (res) {
-                  // console.log(res);
                   alert("Successfully uptade up!");
                 })
-                .catch(function (error) {
-                  console.log(error);
-                });
+                 .catch(function (error) {
+                   console.log(error);
+                 });
               }}
             >
               {(props) => {
@@ -136,6 +150,7 @@ const PurposeEditForm = () => {
                     <button
                       className="bg-blue-500 rounded-md mt-4 mb-4 p-2 hover:bg-blue-700"
                       type="Submit"
+                      disabled
                     >
                       Submit
                     </button>
