@@ -1,8 +1,15 @@
 #purposeAddForm input{
     color: black;
+    padding-top:4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
 }
 #purposeEditForm input{
     color: black;
+    padding-top:8px;
+    padding-bottom: 8px;
+    padding-left: 4px;
+    
 }
 
 input {

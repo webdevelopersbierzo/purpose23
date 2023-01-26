@@ -40,11 +40,11 @@ const router = createBrowserRouter([
     element: <PurposeAddForm></PurposeAddForm>
   },
   {
-    path:'/profile/purpose/edit/*',
+    path:'/profile/purpose/edit/:id',
     element:<PurposeEditForm />
   },
   {
-    path:'/profile/purpose/delete/*',
+    path:'/profile/purpose/delete/:id',
     element:<DeletePage />
   }
 
