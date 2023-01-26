@@ -3,19 +3,22 @@ import PropTypes from "prop-types";
 import Menu from "../components/menu";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import axios from "axios";
-import { useParams } from "react-router";
+import { redirect, useParams, useNavigate } from "react-router";
 import * as Yup from 'yup';
 
 const PurposeEditForm = () => {
 
-  const {id} = useParams();
+  const param= useParams()
+  const navigate = useNavigate();
   const [isReady, setIsReady] = useState(false);
   const [purposedata, setPurposedata] = useState([]);
+  let url = `https://purpose23-production.up.railway.app/api/v1/purposes/${param.id}`;
+  
 
   useEffect(() => {
     
     axios
-      .get(`https://purpose23-production.up.railway.app/api/v1/purposes/6`)
+      .get(url)
       .then((response) => {
         if ((response.status === 200)) {
           setPurposedata(response.data);
@@ -39,7 +42,7 @@ const PurposeEditForm = () => {
   })
 
   const dataForm = {
-    id:`${id}`,
+    id:`${param.id}`,
     category: `${purposedata.category}`,
     purposeName: `${purposedata.purposeName}`,
     purposeWhat:`${purposedata.purposeWhat}`,
@@ -56,22 +59,24 @@ const PurposeEditForm = () => {
           <div className="flex flex-col items-center w-11/12 md:w-2/3">
             <Formik
               initialValues={dataForm}
-              enableReinitialize={true}
+              //enableReinitialize={true}
               validationSchema= {editFormSchema}
               onSubmit={async (values) =>{
                 await new Promise((r)=> setTimeout(r,500));
                 alert(JSON.stringify(values,null,2));
 
                 axios({
-                  method: "POST",
+                  method: "PUT",
                   url: `https://purpose23-production.up.railway.app/api/v1/purposes`,
                   data: values,
                   header: {"Content-Type": "application/json"},
                 })
                 .then(function (res) {
                   alert("Successfully uptade up!");
+                  navigate('/profile')
+                  
                 })
-                 .catch(function (error) {
+                .catch(function (error) {
                    console.log(error);
                  });
               }}
@@ -150,7 +155,7 @@ const PurposeEditForm = () => {
                     <button
                       className="bg-blue-500 rounded-md mt-4 mb-4 p-2 hover:bg-blue-700"
                       type="Submit"
-                      disabled
+                      
                     >
                       Submit
                     </button>
