@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const ProfilePage = () => {
     const imgBg = "../assets/img/img-profile-data.jpg";
   return (
-    <div className="w-full bg-slate-900  h-full text-white items-center">
+    <div className="w-full bg-slate-900  h-full text-white items-center md:h-screen">
       <Menu></Menu>
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center w-full">
