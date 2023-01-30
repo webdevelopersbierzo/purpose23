@@ -52,7 +52,7 @@ const Menu = () => {
 
         <p className="text-2xl text-white">Purpose</p>
         <div className="flex justify-start items-center">
-          <BellIcon className="w-8 h-8 text-white"></BellIcon>
+          {/* <BellIcon className="w-8 h-8 text-white"></BellIcon> */}
           <div className="flex justify-center rounded-full w-10 h-10 bg-white">
             <p className="text-2xl text-gray-200 mt-1">U</p>
           </div>
